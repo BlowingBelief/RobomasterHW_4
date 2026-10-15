@@ -37,7 +37,20 @@ enable_language(C ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
-        Core/Src/callback_1.c)
+        Core/Src/callback_1.c
+        Core/Inc/pids.h
+        Core/Src/pids.cpp
+        Core/Inc/Kalman_online.h
+        Core/Src/Kalman_online.cpp
+        Core/Inc/Kalman_offline.h
+        Core/Src/Kalman_offline.cpp
+        UserCode/can_user.h
+        UserCode/can_user.c
+        UserCode/callback.cpp
+        UserCode/Motor.h
+        UserCode/Motor.cpp)
+
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE UserCode)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
